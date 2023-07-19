@@ -8,6 +8,13 @@
 </head>
 
 <body>
+    @include('layouts.partials.header')
+
+    <main>
+        @yield('main-content')
+    </main>
+
+    @include('layouts.partials.footer')
     @vite('resources/js/app.js');
 </body>
 

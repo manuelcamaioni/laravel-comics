@@ -1,1 +1,271 @@
+@use "./partials/variables.scss" as *;
 @import "~bootstrap/scss/bootstrap";
+body {
+    height: 100vh;
+    background-color: #212121;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+div.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.bg-primary {
+    background-color: $primaryColor;
+}
+
+.bg-black {
+    background-color: #1c1c1c;
+}
+
+header {
+    background-color: white;
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+        height: 103px;
+
+        .img-container {
+            height: 100%;
+            align-items: center;
+
+            img {
+                height: 80%;
+                display: block;
+            }
+        }
+
+        .list-container {
+            align-items: center;
+
+            ul {
+                li {
+                    margin: 0.5rem 0.75rem;
+                    text-transform: uppercase;
+                    margin: 0;
+                    margin-left: 1rem;
+                    position: relative;
+
+                    // a.active {
+                    //     color: $primaryColor;
+                    // }
+
+                    // &.active::after {
+                    //     content: "";
+                    //     position: absolute;
+                    //     bottom: 0;
+                    //     top: 93%;
+                    //     left: 0;
+                    //     right: 0;
+                    //     background-color: $primaryColor;
+                    //}
+
+                    a {
+                        color: black;
+                        text-decoration: none;
+                        display: flex;
+                        align-items: center;
+                        &:hover {
+                            color: $primaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.cards-container {
+    position: relative;
+
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 2rem 0;
+    h2 {
+        position: absolute;
+        top: -27px;
+        left: 40px;
+
+        background-color: $primaryColor;
+        color: white;
+        text-transform: uppercase;
+        padding: 0.7rem;
+    }
+    button {
+        margin: 0 auto;
+        background-color: $primaryColor;
+        color: white;
+        text-transform: uppercase;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-weight: bold;
+    }
+}
+
+div.card {
+    width: calc(100% / 6 - 0.5rem);
+    height: 350px;
+
+    h3.title {
+        color: white;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+    div.img-container {
+        width: 100%;
+        height: 80%;
+        margin-bottom: 1rem;
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+}
+div.overlay {
+    position: absolute;
+    background-color: black;
+    opacity: 0.5;
+    transition: opacity 0.5s ease-out;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+div.card:hover div.overlay {
+    opacity: 0;
+}
+
+div.info-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+.price,
+.type-book {
+    opacity: 0;
+
+    padding: 0 0.3rem;
+}
+
+.type-book {
+    text-transform: capitalize;
+}
+
+.abs-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 50px;
+    background-color: orangered;
+
+    transition: width 1.2s;
+}
+
+div.card:hover .abs-container {
+    width: 100%;
+}
+
+div.card:hover .price,
+div.card:hover .type-book {
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+footer {
+    background: url("../img/footer-bg.jpg") no-repeat;
+    background-size: cover;
+    position: relative;
+    color: white;
+    .overlay-container {
+        position: absolute;
+        top: -45px;
+        right: 5%;
+        width: 700px;
+        height: 456px;
+        background: url("../img/dc-logo-bg.png") no-repeat;
+    }
+    .list-container {
+        margin-bottom: 1rem;
+        margin-right: 1rem;
+        li {
+            margin-bottom: 0.2rem;
+
+            a {
+                color: rgb(180, 180, 180);
+                text-decoration: none;
+                &:hover {
+                    color: white;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    h2 {
+        padding: 1rem 0;
+        text-transform: uppercase;
+    }
+
+    .extended-wrapper {
+        background-color: #303030;
+        padding: 2rem 0;
+        z-index: 1;
+        position: relative;
+        .container {
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            button {
+                background-color: transparent;
+                color: white;
+                border: 1px solid $primaryColor;
+                text-transform: uppercase;
+                padding: 0.5rem 0.5rem;
+                font-size: 1.2rem;
+            }
+            li {
+                margin: 0 0.6rem;
+                text-transform: uppercase;
+                color: $primaryColor;
+                img {
+                    width: 70%;
+                    transition: scale 0.2s ease-out;
+                    &:hover {
+                        filter: invert(1);
+                        scale: 1.3;
+                    }
+                }
+            }
+        }
+    }
+}

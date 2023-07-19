@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
-});
+    $comics = config('db.comics');
+    $headerLinks = config('db.links');
+    $footerInfo = config('db.DClist');
+    $footerShop = config('db.shopList');
+    $footerIcons = config('db.footerIconsList');
+    return view('home', compact('comics', 'headerLinks', 'footerInfo', 'footerShop', 'footerIcons'));
+})->name('homepage');
